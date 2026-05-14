@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>乌鸫 - 你好，鸟同学</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .bird-detail-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2.5rem;
+            color: #657f49;
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: #2d5a27;
+        }
+        
+        .back-link i {
+            margin-right: 0.8rem;
+        }
+        
+        .bird-detail-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+        
+        .bird-detail-header h1 {
+            font-size: 3.5rem;
+            color: #2d5a27;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+        
+        .bird-latin-name {
+            font-size: 1.8rem;
+            color: #777;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+        
+        .bird-description {
+            font-size: 1.4rem;
+            line-height: 1.9;
+            margin-bottom: 4rem;
+            text-align: justify;
+        }
+        
+        .bird-description p {
+            margin-bottom: 2rem;
+            text-indent: 2em;
+        }
+        
+        .bird-description h2 {
+            font-size: 2.2rem;
+            color: #2d5a27;
+            margin: 2.5rem 0 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid #ecedd7;
+            font-weight: 600;
+        }
+        
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+        
+        .image-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            background-color: #f8f4e4;
+        }
+        
+        .image-item img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .image-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .image-caption {
+            padding: 1.5rem;
+            background-color: #f8f4e4;
+            font-size: 1.3rem;
+            color: #555;
+            line-height: 1.6;
+            text-align: center;
+        }
+        
+        .external-link-container {
+            text-align: center;
+            margin: 4rem 0;
+            padding: 2rem;
+            background-color: #f8f4e4;
+            border-radius: 12px;
+        }
+        
+        .external-link {
+            display: inline-flex;
+            align-items: center;
+            background-color: #657f49;
+            color: white;
+            text-decoration: none;
+            padding: 1.2rem 2.5rem;
+            border-radius: 60px;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(101, 127, 73, 0.3);
+            font-weight: 500;
+        }
+        
+        .external-link:hover {
+            background-color: #2d5a27;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(101, 127, 73, 0.4);
+        }
+        
+        .external-link i {
+            margin-right: 1rem;
+            font-size: 1.6rem;
+        }
+        
+        .feature-list {
+            list-style-type: none;
+            margin: 2rem 0;
+        }
+        
+        .feature-list li {
+            margin-bottom: 1.2rem;
+            padding-left: 0;
+            position: relative;
+            font-size: 1.3rem;
+            line-height: 1.7;
+        }
+        
+        @media (max-width: 1024px) {
+            .image-gallery {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .bird-detail-container {
+                padding: 2rem;
+            }
+            
+            .bird-detail-header h1 {
+                font-size: 2.8rem;
+            }
+            
+            .bird-latin-name {
+                font-size: 1.6rem;
+            }
+            
+            .bird-description {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .bird-detail-header h1 {
+                font-size: 2.4rem;
+            }
+            
+            .bird-latin-name {
+                font-size: 1.4rem;
+            }
+            
+            .bird-description {
+                font-size: 1.2rem;
+            }
+            
+            .external-link {
+                padding: 1rem 2rem;
+                font-size: 1.3rem;
+            }
+            
+            .image-item img {
+                height: 280px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .bird-detail-container {
+                padding: 1.5rem;
+            }
+            
+            .bird-detail-header h1 {
+                font-size: 2rem;
+            }
+            
+            .bird-latin-name {
+                font-size: 1.2rem;
+            }
+            
+            .bird-description {
+                font-size: 1.1rem;
+            }
+            
+            .external-link {
+                padding: 0.9rem 1.5rem;
+                font-size: 1.2rem;
+            }
+            
+            .image-item img {
+                height: 220px;
+            }
+            
+            .image-caption {
+                font-size: 1.1rem;
+                padding: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="bird-detail-page">
+    <div id="container" class="container">
+        <header id="header" class="header">
+            <div id="header-inner" class="header-inner">
+                <div class="site-intro">
+                    <div class="site-title">
+                        <h1>你好，鸟同学</h1>
+                        <p class="subtitle">上外观鸟指南</p>
+                    </div>
+                </div>
+
+                <div id="sidebar" class="aside" role="complementary">
+                    <ul id="menu-main-menu" class="menu">
+                        <li class="menu-item"><a href="index.html#about" class="nav-link">关于我们</a></li>
+                        <li class="menu-item"><a href="index.html#bird-intro" class="nav-link">鸟类简介</a></li>
+                        <li class="menu-item"><a href="index.html#watching-intro" class="nav-link">观鸟简介</a></li>
+                        <li class="menu-item"><a href="index.html#common-birds" class="nav-link">校园鸟类</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        
+        <div id="content" class="content">
+            <div class="bird-detail-container">
+                <a href="index.html#common-birds" class="back-link">
+                    <i class="fas fa-arrow-left"></i> 返回校园鸟类
+                </a>
+                
+                <div class="bird-detail-header">
+                    <h1>乌鸫</h1>
+                    <p class="bird-latin-name">Turdus merula</p>
+                </div>
+                
+                <div class="bird-description">
+                    <h2>形态特征</h2>
+                    <p>乌鸫是一种体型中等的鸟类，成年雄性通体黑色，喙部呈橙黄色，眼圈也为黄色。雌鸟体色较浅，呈深褐色，喉部和胸部有浅色斑纹。幼鸟羽色类似雌鸟但更浅。整体外形优雅，喙部颜色是其显著特征。</p>
+                    
+                    <h2>生态习性</h2>
+                    <p>乌鸫在校园中较为常见，喜欢在地面活动觅食。食物以昆虫、蚯蚓和果实为主。乌鸫善于鸣叫，鸣声婉转多变，能模仿多种声音，被称为“百舌鸟”。它们常在清晨和黄昏时段鸣叫，声音悦耳动听。</p>
+                    
+                    <h2>校园观察指南</h2>
+                    <p>乌鸫适应城市环境，在校园中容易观察到。它们喜欢在林间空地和草坪上觅食，常在落叶中寻找食物。乌鸫性情机警，但适应人类活动，保持安静可以观察到其自然行为。注意观察其橙黄色的喙部和地面觅食的特点。</p>
+                    
+                    <ul class="feature-list">
+                        <li><strong>常见地点：</strong>校园草坪、林间空地、灌木丛附近</li>
+                        <li><strong>识别要点：</strong>注意观察通体黑色和橙黄色的喙部</li>
+                        <li><strong>行为特点：</strong>常在地面跳跃觅食，如“扯蚯蚓”，机警但适应城市环境</li>
+                        <li><strong>叫声特征：</strong>鸣声婉转多变，尤其善于模仿其他声音</li>
+                    </ul>
+                </div>
+                
+                <h2 style="font-size: 2.2rem; color: #2d5a27; margin-bottom: 2rem; font-weight: 600;">图集</h2>
+                <div class="image-gallery">
+                    <div class="image-item">
+                        <img src="images/常见鸟/乌鸫1.jpg" alt="乌鸫">
+                        <div class="image-caption">乌鸫在地面觅食，黑色羽毛闪闪发亮</div>
+                    </div>
+                    <div class="image-item">
+                        <img src="images/常见鸟/乌鸫2.jpg" alt="乌鸫">
+                        <div class="image-caption">乌鸫侧面视角，可以看到橙黄色的喙和黄色的眼圈</div>
+                    </div>
+                </div>
+                
+                <div class="external-link-container">
+                    <a href="https://baike.baidu.com/item/乌鸫" target="_blank" class="external-link">
+                        <i class="fas fa-external-link-alt"></i> 查看更多信息 - 访问百度百科乌鸫词条
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            const fourthLink = document.querySelector('.nav-link[href*="common-birds"]');
+            if (fourthLink) {
+                fourthLink.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>

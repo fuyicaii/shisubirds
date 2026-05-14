@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>鹊鸲 - 你好，鸟同学</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .bird-detail-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2.5rem;
+            color: #657f49;
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: #2d5a27;
+        }
+        
+        .back-link i {
+            margin-right: 0.8rem;
+        }
+        
+        .bird-detail-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+        
+        .bird-detail-header h1 {
+            font-size: 3.5rem;
+            color: #2d5a27;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+        
+        .bird-latin-name {
+            font-size: 1.8rem;
+            color: #777;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+        
+        .bird-description {
+            font-size: 1.4rem;
+            line-height: 1.9;
+            margin-bottom: 4rem;
+            text-align: justify;
+        }
+        
+        .bird-description p {
+            margin-bottom: 2rem;
+            text-indent: 2em;
+        }
+        
+        .bird-description h2 {
+            font-size: 2.2rem;
+            color: #2d5a27;
+            margin: 2.5rem 0 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid #ecedd7;
+            font-weight: 600;
+        }
+        
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+        
+        .image-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            background-color: #f8f4e4;
+        }
+        
+        .image-item img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .image-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .image-caption {
+            padding: 1.5rem;
+            background-color: #f8f4e4;
+            font-size: 1.3rem;
+            color: #555;
+            line-height: 1.6;
+            text-align: center;
+        }
+        
+        .external-link-container {
+            text-align: center;
+            margin: 4rem 0;
+            padding: 2rem;
+            background-color: #f8f4e4;
+            border-radius: 12px;
+        }
+        
+        .external-link {
+            display: inline-flex;
+            align-items: center;
+            background-color: #657f49;
+            color: white;
+            text-decoration: none;
+            padding: 1.2rem 2.5rem;
+            border-radius: 60px;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(101, 127, 73, 0.3);
+            font-weight: 500;
+        }
+        
+        .external-link:hover {
+            background-color: #2d5a27;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(101, 127, 73, 0.4);
+        }
+        
+        .external-link i {
+            margin-right: 1rem;
+            font-size: 1.6rem;
+        }
+        
+        .feature-list {
+            list-style-type: none;
+            margin: 2rem 0;
+        }
+        
+        .feature-list li {
+            margin-bottom: 1.2rem;
+            padding-left: 0;
+            position: relative;
+            font-size: 1.3rem;
+            line-height: 1.7;
+        }
+        
+        @media (max-width: 1024px) {
+            .image-gallery {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .bird-detail-container {
+                padding: 2rem;
+            }
+            
+            .bird-detail-header h1 {
+                font-size: 2.8rem;
+            }
+            
+            .bird-latin-name {
+                font-size: 1.6rem;
+            }
+            
+            .bird-description {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .bird-detail-header h1 {
+                font-size: 2.4rem;
+            }
+            
+            .bird-latin-name {
+                font-size: 1.4rem;
+            }
+            
+            .bird-description {
+                font-size: 1.2rem;
+            }
+            
+            .external-link {
+                padding: 1rem 2rem;
+                font-size: 1.3rem;
+            }
+            
+            .image-item img {
+                height: 280px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .bird-detail-container {
+                padding: 1.5rem;
+            }
+            
+            .bird-detail-header h1 {
+                font-size: 2rem;
+            }
+            
+            .bird-latin-name {
+                font-size: 1.2rem;
+            }
+            
+            .bird-description {
+                font-size: 1.1rem;
+            }
+            
+            .external-link {
+                padding: 0.9rem 1.5rem;
+                font-size: 1.2rem;
+            }
+            
+            .image-item img {
+                height: 220px;
+            }
+            
+            .image-caption {
+                font-size: 1.1rem;
+                padding: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="bird-detail-page">
+    <div id="container" class="container">
+        <header id="header" class="header">
+            <div id="header-inner" class="header-inner">
+                <div class="site-intro">
+                    <div class="site-title">
+                        <h1>你好，鸟同学</h1>
+                        <p class="subtitle">上外观鸟指南</p>
+                    </div>
+                </div>
+
+                <div id="sidebar" class="aside" role="complementary">
+                    <ul id="menu-main-menu" class="menu">
+                        <li class="menu-item"><a href="index.html#about" class="nav-link">关于我们</a></li>
+                        <li class="menu-item"><a href="index.html#bird-intro" class="nav-link">鸟类简介</a></li>
+                        <li class="menu-item"><a href="index.html#watching-intro" class="nav-link">观鸟简介</a></li>
+                        <li class="menu-item"><a href="index.html#common-birds" class="nav-link">校园鸟类</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        
+        <div id="content" class="content"> 
+            <div class="bird-detail-container">
+                <a href="index.html#common-birds" class="back-link">
+                    <i class="fas fa-arrow-left"></i> 返回校园鸟类
+                </a>
+                
+                <div class="bird-detail-header">
+                    <h1>鹊鸲 <span style="font-size: 1.2rem; color: #777; font-style: normal; vertical-align: middle;">(què qú)</span></h1>
+                    <p class="bird-latin-name">Copsychus saularis</p>
+                </div>
+                
+                <div class="bird-description">
+                    <h2>形态特征</h2>
+                    <p>鹊鸲是一种中等体型的鸟类，雄鸟身体主要为黑白两色，头部、颈部和上背部为黑色，下背部和腹部为白色，翅膀有白色斑纹。雌鸟羽色较暗，主要为灰褐色，腹部颜色较浅。整体外形与喜鹊相似但体型较小。</p>
+                    
+                    <h2>生态习性</h2>
+                    <p>鹊鸲在校园中较为常见，喜欢在开阔地、林缘和建筑物附近活动。它们常在地面跳跃觅食，以昆虫、小果实等为食。鹊鸲鸣声悦耳多变，善于模仿其他鸟类的叫声，有时会在清晨和黄昏鸣叫。不过，鹊鸲在感受到危险靠近时会发出示警的叫声，很难听。。。</p>
+                    
+                    <h2>校园观察指南</h2>
+                    <p>鹊鸲在校园中也很常见，很多地方都有它们的身影，比较容易观察。鹊鸲活泼好动，观察时需注意其跳跃的动作。注意雄鸟黑白分明的羽毛，雌鸟则颜色较暗，就能顺利区分它们啦。</p>
+                    
+                    <ul class="feature-list">
+                        <li><strong>常见地点：</strong>校园草坪、灌木丛、建筑物周围</li>
+                        <li><strong>识别要点：</strong>注意观察黑白相间的特点和较小的体型</li>
+                        <li><strong>行为特点：</strong>常在地面跳跃觅食，活泼好动，喜欢摇尾巴</li>
+                        <li><strong>叫声特征：</strong>鸣声悦耳多变，善于模仿其他声音</li>
+                    </ul>
+                </div>
+                
+                <h2 style="font-size: 2.2rem; color: #2d5a27; margin-bottom: 2rem; font-weight: 600;">图集</h2>
+                <div class="image-gallery">
+                    <div class="image-item">
+                        <img src="images/常见鸟/鹊鸲1.jpg" alt="鹊鸲">
+                        <div class="image-caption">活泼好动的鹊鸲雌鸟♀</div>
+                    </div>
+                    <div class="image-item">
+                        <img src="images/常见鸟/鹊鸲2.jpg" alt="鹊鸲">
+                        <div class="image-caption">鹊鸲♀在地面觅食</div>
+                    </div>
+                    <div class="image-item">
+                        <img src="images/常见鸟/鹊鸲3.jpg" alt="鹊鸲">
+                        <div class="image-caption">鹊鸲雄鸟♂，黑色羽毛反光亮亮的</div>
+                    </div>
+                    <div class="image-item">
+                        <img src="images/常见鸟/鹊鸲4.jpg" alt="鹊鸲">
+                        <div class="image-caption">鹊鸲♂侧面</div>
+                    </div>
+                </div>
+                
+                <div class="external-link-container">
+                    <a href="https://baike.baidu.com/item/鹊鸲" target="_blank" class="external-link">
+                        <i class="fas fa-external-link-alt"></i> 查看更多信息 - 访问百度百科鹊鸲词条
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            const fourthLink = document.querySelector('.nav-link[href*="common-birds"]');
+            if (fourthLink) {
+                fourthLink.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>

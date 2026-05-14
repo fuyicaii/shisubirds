@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>小䴙䴘 - 你好，鸟同学</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .bird-detail-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2.5rem;
+            color: #657f49;
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: #2d5a27;
+        }
+        
+        .back-link i {
+            margin-right: 0.8rem;
+        }
+        
+        .bird-detail-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+        
+        .bird-detail-header h1 {
+            font-size: 3.5rem;
+            color: #2d5a27;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+        
+        .bird-latin-name {
+            font-size: 1.8rem;
+            color: #777;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+        
+        .bird-description {
+            font-size: 1.4rem;
+            line-height: 1.9;
+            margin-bottom: 4rem;
+            text-align: justify;
+        }
+        
+        .bird-description p {
+            margin-bottom: 2rem;
+            text-indent: 2em;
+        }
+        
+        .bird-description h2 {
+            font-size: 2.2rem;
+            color: #2d5a27;
+            margin: 2.5rem 0 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid #ecedd7;
+            font-weight: 600;
+        }
+        
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+        
+        .image-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            background-color: #f8f4e4;
+        }
+        
+        .image-item img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .image-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .image-caption {
+            padding: 1.5rem;
+            background-color: #f8f4e4;
+            font-size: 1.3rem;
+            color: #555;
+            line-height: 1.6;
+            text-align: center;
+        }
+        
+        .external-link-container {
+            text-align: center;
+            margin: 4rem 0;
+            padding: 2rem;
+            background-color: #f8f4e4;
+            border-radius: 12px;
+        }
+        
+        .external-link {
+            display: inline-flex;
+            align-items: center;
+            background-color: #657f49;
+            color: white;
+            text-decoration: none;
+            padding: 1.2rem 2.5rem;
+            border-radius: 60px;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(101, 127, 73, 0.3);
+            font-weight: 500;
+        }
+        
+        .external-link:hover {
+            background-color: #2d5a27;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(101, 127, 73, 0.4);
+        }
+        
+        .external-link i {
+            margin-right: 1rem;
+            font-size: 1.6rem;
+        }
+        
+        .feature-list {
+            list-style-type: none;
+            margin: 2rem 0;
+        }
+        
+        .feature-list li {
+            margin-bottom: 1.2rem;
+            padding-left: 0;
+            position: relative;
+            font-size: 1.3rem;
+            line-height: 1.7;
+        }
+        
+        @media (max-width: 1024px) {
+            .image-gallery {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .bird-detail-container {
+                padding: 2rem;
+            }
+            
+            .bird-detail-header h1 {
+                font-size: 2.8rem;
+            }
+            
+            .bird-latin-name {
+                font-size: 1.6rem;
+            }
+            
+            .bird-description {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .bird-detail-header h1 {
+                font-size: 2.4rem;
+            }
+            
+            .bird-latin-name {
+                font-size: 1.4rem;
+            }
+            
+            .bird-description {
+                font-size: 1.2rem;
+            }
+            
+            .external-link {
+                padding: 1rem 2rem;
+                font-size: 1.3rem;
+            }
+            
+            .image-item img {
+                height: 280px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .bird-detail-container {
+                padding: 1.5rem;
+            }
+            
+            .bird-detail-header h1 {
+                font-size: 2rem;
+            }
+            
+            .bird-latin-name {
+                font-size: 1.2rem;
+            }
+            
+            .bird-description {
+                font-size: 1.1rem;
+            }
+            
+            .external-link {
+                padding: 0.9rem 1.5rem;
+                font-size: 1.2rem;
+            }
+            
+            .image-item img {
+                height: 220px;
+            }
+            
+            .image-caption {
+                font-size: 1.1rem;
+                padding: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="bird-detail-page">
+    <div id="container" class="container">
+        <header id="header" class="header">
+            <div id="header-inner" class="header-inner">
+                <div class="site-intro">
+                    <div class="site-title">
+                        <h1>你好，鸟同学</h1>
+                        <p class="subtitle">上外观鸟指南</p>
+                    </div>
+                </div>
+
+                <div id="sidebar" class="aside" role="complementary">
+                    <ul id="menu-main-menu" class="menu">
+                        <li class="menu-item"><a href="index.html#about" class="nav-link">关于我们</a></li>
+                        <li class="menu-item"><a href="index.html#bird-intro" class="nav-link">鸟类简介</a></li>
+                        <li class="menu-item"><a href="index.html#watching-intro" class="nav-link">观鸟简介</a></li>
+                        <li class="menu-item"><a href="index.html#common-birds" class="nav-link">校园鸟类</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        
+        <div id="content" class="content">
+            <div class="bird-detail-container">
+                <a href="index.html#common-birds" class="back-link">
+                    <i class="fas fa-arrow-left"></i> 返回校园鸟类
+                </a>
+                
+                <div class="bird-detail-header">
+                    <h1>小䴙䴘 <span style="font-size: 1.2rem; color: #777; font-style: normal; vertical-align: middle;">(xiǎo pì tī)</span></h1>
+                    <p class="bird-latin-name">Tachybaptus ruficollis</p>
+                </div>
+                 
+                <div class="bird-description">
+                    <h2>形态特征</h2>
+                    <p>小䴙䴘是一种小型水鸟，体型短圆，颈部长而灵活。体羽主要为褐色，繁殖期呈红褐色，冬季颜色较浅。喙部短而尖，颜色较深。游泳时常将身体藏于水下。</p>
+                    
+                    <h2>生态习性</h2>
+                    <p>小䴙䴘主要生活在淡水水域，如池塘、湖泊和缓流河段。它们善于游泳和潜水，常在水中捕食小鱼、虾和水生昆虫。受惊扰时会迅速潜入水中躲避。繁殖期常成对活动，在水面植被中筑巢。</p>
+                    
+                    <h2>校园观察指南</h2>
+                    <p>在校园中的镜湖与大邱泾容易观察到小䴙䴘，它们常在开阔水面活动。它们游泳时身体大部分在水下，潜水后可能在较远位置浮出水面。注意观察其独特的游泳姿态和潜水行为。</p>
+                    
+                    <ul class="feature-list">
+                        <li><strong>常见地点：</strong>校园池塘、湖泊等开阔水域</li>
+                        <li><strong>识别要点：</strong>注意观察短圆体型和独特的游泳姿态</li>
+                        <li><strong>行为特点：</strong>善于潜水，在水里捕食</li>
+                        <li><strong>叫声特征：</strong>繁殖期发出响亮尖锐的鸣叫声，一般不易听到</li>
+                    </ul>
+                </div>
+                
+                <h2 style="font-size: 2.2rem; color: #2d5a27; margin-bottom: 2rem; font-weight: 600;">图集</h2>
+                <div class="image-gallery">
+                    <div class="image-item">
+                        <img src="images/常见鸟/小䴙䴘1.jpg" alt="小䴙䴘">
+                        <div class="image-caption">繁殖期的小䴙䴘和像露馅芝麻汤圆的宝宝在水中</div>
+                    </div>
+                    <div class="image-item">
+                        <img src="images/常见鸟/小䴙䴘2.jpg" alt="小䴙䴘">
+                        <div class="image-caption">一对小䴙䴘的侧面视角，像一双棉拖鞋</div>
+                    </div>
+                </div>
+                
+                <div class="external-link-container">
+                    <a href="https://baike.baidu.com/item/小䴙䴘" target="_blank" class="external-link">
+                        <i class="fas fa-external-link-alt"></i> 查看更多信息 - 访问百度百科小䴙䴘词条
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            const fourthLink = document.querySelector('.nav-link[href*="common-birds"]');
+            if (fourthLink) {
+                fourthLink.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
